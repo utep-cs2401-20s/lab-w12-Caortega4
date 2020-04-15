@@ -74,13 +74,13 @@ class myBinarySearchTreeNode{
     return Math.max(leftHeight, rightHeight) + 1;
 
   }
-  
+
   public int depth(int search){
-     // This method recursively calculates the depth of a given search value. 
-     // If the given value is not in the tree, this method returns -1. 
-     // Note that if the tree is a proper BST, this method should complete in O(log n) time.
-     // Additionally, remember that the depth is the number of nodes on the path from a node to the root 
-     // (i.e. the number of the recursive calls).
+    // This method recursively calculates the depth of a given search value.
+    // If the given value is not in the tree, this method returns -1.
+    // Note that if the tree is a proper BST, this method should complete in O(log n) time.
+    // Additionally, remember that the depth is the number of nodes on the path from a node to the root
+    // (i.e. the number of the recursive calls).
 
     int sum = 1;
 
@@ -88,7 +88,8 @@ class myBinarySearchTreeNode{
     if (search < myValue) {
       //If there exists a left node it will call the the method on that child
       if (left != null) {
-        return sum + left.depth(search);
+        if (left.depth(search) == -1) return -1;
+        else return sum + left.depth(search);
       }
     }
 
@@ -96,17 +97,18 @@ class myBinarySearchTreeNode{
     if (search > myValue) {
       //If there exists a right node it will call the method on that child
       if (right != null) {
-        return sum + right.depth(search);
+        if (right.depth(search) == -1) return -1;
+        else return sum + right.depth(search);
       }
     }
 
     //If search is found it will return the depth of the node
     if (search == myValue) {
-        return sum - 1;
+      return sum - 1;
     }
 
     //If the value is not found than it will return -1
-    return -2 - sum;
+    return  -1;
   }
 
   public int size(){
@@ -145,5 +147,7 @@ class myBinarySearchTreeNode{
     System.out.println(tree.depth(100));
     System.out.println(tree.size());
   }
+
+
   
 } 
