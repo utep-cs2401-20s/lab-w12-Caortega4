@@ -139,15 +139,4 @@ class myBinarySearchTreeNode{
     if(right != null) right.print(prefix + "\u2514 ");
   }
 
-  public static void main(String[] args) {
-    int[] a = {4,6,2,1,5,3,7};
-    myBinarySearchTreeNode tree = new  myBinarySearchTreeNode(a);
-    tree.print();
-    System.out.println(tree.height());
-    System.out.println(tree.depth(100));
-    System.out.println(tree.size());
-  }
-
-
-  
 } 
